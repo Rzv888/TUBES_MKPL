@@ -8,7 +8,6 @@ public class KalkulatorSuhu {
     KalkulatorSuhu(int suhu, String jenis_satuan){
         this.suhu = suhu;
         this.jenis_satuan_awal = jenis_satuan;
-
     }
 
     int getKelvin(){
