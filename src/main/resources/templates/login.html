@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>SEHAT PLUS</title>
+  <link rel="stylesheet" href="../css/login.css">
+  <style>
+  </style>
+</head>
+
+<body>
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="card px-5 py-5 bg-dark" id="form1">
+          <div class="bg-danger" th:if="${success} == false">
+            <p class="text-white text-center">Email atau Password Salah</p>
+          </div>
+          <h1>Log In</h1>
+          <form method="POST" th:action="@{/auth/login-request}" th:object="${loginRequest}">
+            <div class="row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+              <div class="form-group">
+              </div>
+              <input class="btn btn-primary" style="margin-bottom: 10px" type="submit" value="Login" />
+          </form>
+          <div class="signup-link">
+            Tidak memiliki akun? Yuk! <a href="signup">Sign Up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

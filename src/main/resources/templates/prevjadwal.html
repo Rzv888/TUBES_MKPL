@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <button onclick="logOut()">Log out</button>
+  <title>Preview Jadwal Pilihan</title>
+  <link rel="stylesheet" type="text/css" href="../css/prevjadwal.css">
+  <script src="../js/universal.js"></script>
+</head>
+
+<body>
+  <div class="schedule-preview">
+    <h2>Jadwal Dokter Pilihan</h2>
+    <div class="schedule-details">
+      <div class="schedule-item">
+        <label>Kode Pertemuan:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.kodePerjanjian}" id="kodePertemuan"></span>
+      </div>
+      <div class="schedule-item">
+        <label>Email Pasien:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.emailPasien}" id="emailPasien"></span>
+      </div>
+      <div class="schedule-item">
+        <label>Departemen:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.department}" id="departemen"></span>
+      </div>
+      <div class="schedule-item">
+        <label>Nama Dokter:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.namaDokter}" id="namaDokter"></span>
+      </div>
+      <div class="schedule-item">
+        <label>Tanggal:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.tanggalKerja}" id="hariTanggal"></span>
+      </div>
+      <div class="schedule-item">
+        <label>Jam:</label>
+        <span th:if="${selectedJadwal != null}" th:text="${selectedJadwal.jamKerja}" id="jam"></span>
+      </div>
+      <form action="/hapusJadwalPasien" method="post">
+        <button type="submit" onclick="return confirm('Apakah Anda yakin ingin membatalkan jadwal pertemuan ini?')">
+          Batalkan Petermuan</button>
+    </form>
+
+</body>
+
+</html>

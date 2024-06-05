@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <button onclick="back()">&#x2190;</button>
+    <button onclick="logOut()">Log out</button>
+    <title>Jadwal Pilihan Pasien </title>
+    <link rel="stylesheet" href="../css/pasienDash.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/universal.js"></script>
+    <style>
+        th,
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jadwal Pilihan Pasien</h1>
+
+    <div>
+        <label for="departmentSelect">Pilih Departemen:</label>
+        <select id="departmentSelect">
+            <option value="all">Semua Departemen</option>
+            <option value="Gizi">Gizi</option>
+            <option value="Farmasi">Farmasi</option>
+            <option value="Radiologi">Radiologi</option>
+            <option value="Bedah">Radiologi</option>
+        </select>
+    </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Kode Pertemuan</th>
+                    <th>Email Pasien</th>
+                    <th>Departemen</th>
+                    <th>Nama Dokter</th>
+                    <th>Tanggal</th>
+                    <th>Jam</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="jadwal : ${jadwalPilihanPasienList}" th:attr="data-department=${jadwal.department}">
+                    <td th:text="${jadwal.kodePerjanjian}"></td>
+                    <td th:text="${jadwal.emailPasien}"></td>
+                    <td th:text="${jadwal.department}"></td>
+                    <td th:text="${jadwal.namaDokter}"></td>
+                    <td th:text="${jadwal.tanggalKerja}"></td>
+                    <td th:text="${jadwal.jamKerja}"></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <script>
+        function back(){
+            window.location.href="/adminDash";
+        }
+    </script>
+    
+</body>
+
+</html>

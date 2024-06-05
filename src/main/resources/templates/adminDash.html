@@ -1,0 +1,60 @@
+</html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <button onclick="logOut()">Log out</button>
+    <title>Jadwal Kerja</title>
+    <link rel="stylesheet" href="../css/pasienDash.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/universal.js"></script>
+    <script src="../js/admin.js"></script>
+    <style>
+        th,
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Jadwal Kerja Dokter</h1>
+    <button style="margin-bottom: 10px" onclick="tambahJadwal()">+ Tambah Jadwal</button>
+    <button style="margin-bottom: 10px" onclick="kelolaPilihan()">Kelola Pilihan Pasien</button>
+    <div>
+        <label for="departmentSelect">Pilih Departemen:</label>
+        <select id="departmentSelect">
+            <option value="all">Semua Departemen</option>
+            <option value="Gizi">Gizi</option>
+            <option value="Farmasi">Farmasi</option>
+            <option value="Radiologi">Radiologi</option>
+            <option value="Bedah">Radiologi</option>
+        </select>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Tanggal</th>
+                <th>Nama Dokter</th>
+                <th>Departemen</th>
+                <th>Jam</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="jadwal : ${jadwalKerjaList}"th:attr="data-department=${jadwal.department}">
+                <td th:text="${jadwal.tanggalKerja}"></td>
+                <td th:text="${jadwal.namaDokter}"></td>
+                <td th:text="${jadwal.department}"></td>
+                <td>
+                    <span th:text="${jadwal.jamMulai} + ' - ' + ${jadwal.jamSelesai}"></span>
+                </td>
+                <td>
+                  <input type="hidden" th:value="${jadwal.id}" />
+                  <button type="button" onclick="hapusJadwal(this)">Hapus</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

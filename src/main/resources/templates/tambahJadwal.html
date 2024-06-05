@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <button onclick="back()">&#x2190;</button>
+  <button onclick="logOut()">Log out</button>
+  <title>Penjadwalan Dokter</title>
+  <script src="../js/universal.js"></script>
+</head>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+  }
+
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #2980b9;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ecf0f1;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  input[type="date"],
+  input[type="time"],
+  select {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transition: border-color 0.3s ease;
+  }
+
+  input[type="date"]:focus,
+  input[type="time"]:focus,
+  select:focus {
+    border-color: #3498db;
+  }
+
+  button {
+    background-color: #2980b9;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #2473a6;
+  }
+
+  button:active {
+    background-color: #1f618d;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .box {
+    width: 300px;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+</style>
+
+<body>
+    
+  <h1>Penjadwalan Dokter</h1>
+  <form th:action="@{/addJadwal}" method="post">
+    <table id="jadwalTable">
+      <!-- Tambahkan atribut "th:field" pada input fields untuk menghubungkannya dengan objek JadwalKerja -->
+      <tr>
+        <th>Tanggal</th>
+        <th>Jam Mulai</th>
+        <th>Jam Selesai</th>
+        <th>Department</th>
+        <th>Nama Dokter</th>
+        <th>Aksi</th>
+      </tr>
+      <tr>
+        <td><input name="tanggalKerja" type="date" class="tanggal"></td>
+        <td><input name="jamMulai" type="time" class="jamMulai"></td>
+        <td><input name="jamSelesai" type="time" class="jamSelesai"></td>
+        <td>
+          <select name="department" class="department">
+            <option value="Gizi">Gizi</option>
+            <option value="Farmasi">Farmasi</option>
+            <option value="Radiologi">Radiologi</option>
+            <option value="Bedah">Radiologi</option>
+          </select>
+        </td>
+        <td>
+          <select name="namaDokter" class="namaDokter">
+            <option value="Dr. Zhafran Hafizh">Dr. Zhafran Hafizh</option>
+            <option value="Dr. Muhammad Burhan">Dr. Muhammad Burhan</option>
+            <option value="Dr. Ashar Syahbudi S">Dr. Ashar Syahbudi S</option>
+            <option value="Dr. Yakup Asmaidy A">Dr. Yakup Asmaidy A</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <button style="margin-top: 10px" type="submit">Konfirmasi Penjadwalan</button>
+  </form>
+  <script>
+    function back(){
+        window.location.href="/adminDash";
+    }
+</script>
+
+</body>
+
+</html>
