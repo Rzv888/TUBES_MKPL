@@ -37,7 +37,8 @@ public class Main {
             while (run) {
                 System.out.println("Pilihan Menu:");
                 System.out.println("1. Lihat suhu sekarang");
-                System.out.println("2. Ganti suhu sekarang");
+                System.out.println("2. Konversi suhu");
+
                 System.out.println("3. Keluar");
                 System.out.print("Pilih menu: ");
                 int menu = scanner.nextInt();
@@ -45,9 +46,15 @@ public class Main {
                 switch (menu) {
                     case 1:
                         System.out.println("// Lihat suhu sekarang");
+                        System.out.println("Suhu\t: " + kalkulator.suhu);
+                        System.out.println("Satuan\t: " + kalkulator.jenis_satuan_awal);
                         break;
                     case 2:
-                        System.out.println("// Ganti suhu sekarang");
+                        System.out.println("// Konversi suhu sekarang");
+                        System.out.println("Celcius\t: " + kalkulator.getCelcius());
+                        System.out.println("Fahrenheit\t: " + kalkulator.getFahrenheit());
+                        System.out.println("Kelvin\t: " + kalkulator.getKelvin());
+
                         break;
                     case 3:
                         run = false;
