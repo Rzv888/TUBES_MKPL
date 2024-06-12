@@ -1,7 +1,5 @@
 
-
 import org.junit.jupiter.api.Test;
-
 import com.example.kalkulatorsuhu.KalkulatorSuhu;
 
 import static org.junit.jupiter.api.Assertions.*;
