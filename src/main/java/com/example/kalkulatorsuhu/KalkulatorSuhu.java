@@ -2,15 +2,15 @@ package com.example.kalkulatorsuhu;
 
 public class KalkulatorSuhu {
 
-    int suhu;
-    String jenis_satuan_awal;
+    public int suhu;
+    public String jenis_satuan_awal;
     
-    KalkulatorSuhu(int suhu, String jenis_satuan){
+    public KalkulatorSuhu(int suhu, String jenis_satuan){
         this.suhu = suhu;
         this.jenis_satuan_awal = jenis_satuan;
     }
 
-    int getKelvin(){
+    public int getKelvin(){
         if (this.jenis_satuan_awal == "Celcius"){
 
 
@@ -24,7 +24,7 @@ public class KalkulatorSuhu {
         return 0;
 
     }
-    int getCelcius(){
+    public int getCelcius(){
         if (this.jenis_satuan_awal == "Celcius"){
 
             return this.suhu;
@@ -37,7 +37,7 @@ public class KalkulatorSuhu {
         return 0;
 
     }
-    int getFahrenheit(){
+    public int getFahrenheit(){
         if (this.jenis_satuan_awal == "Celcius"){
 
             return (9/5)* this. suhu + 32;
@@ -49,7 +49,7 @@ public class KalkulatorSuhu {
         return 0;
     }
 
-    void  changeSuhu(int suhu, String jenis_satuan){
+    public void  changeSuhu(int suhu, String jenis_satuan){
         this.suhu = suhu;
         this.jenis_satuan_awal = jenis_satuan;
     }
